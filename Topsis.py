@@ -57,12 +57,19 @@ class Topsis:
         self.separationMeasures()
         self.performanceScore()
         self.rank()
-    
+
+    #def getName(self) -> None:
+        #regex = re.compile(r'https://www.laptoparena.net/product/(\w+)')
+        #embed = []
+        #for i in range(1):
+            #embed.append(regex.sub(self.data['Name'].iloc[i], self.data['Name'].iloc[i]))
+        #return embed
+
     def getEmbed(self) -> None:
         regex = re.compile(r'https://www.laptoparena.net/product/(\w+)')
         embed = []
         for i in range(15):
-            embed.append(regex.sub(self.data['ImageURLs'].iloc[i], self.data['ImageURLs'].iloc[i]))
+            embed.append(regex.sub(r'https://www.laptoparena.net/images/tmb/\1', self.data['ImageURLs'].iloc[i]))
         return embed
     
     def getPercentage(self) -> None:
